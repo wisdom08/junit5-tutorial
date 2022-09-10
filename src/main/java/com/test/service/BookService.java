@@ -21,19 +21,20 @@ public class BookService {
     @Transactional(rollbackFor = RuntimeException.class)
     public BookResDto createBook(BookSaveReqDto dto) {
         Book savedBook = bookRepository.save(dto.toEntity());
-        return new BookResDto().toDto(savedBook);
+        return savedBook.toDto();
     }
 
     public List<BookResDto> getBookList() {
         return bookRepository.findAll().stream()
-                .map(new BookResDto()::toDto)
+                .map(Book::toDto)
                 .collect(Collectors.toList());
     }
 
     public BookResDto getBook(Long id) {
         Optional<Book> book = bookRepository.findById(id);
         if (book.isPresent()) {
-            return new BookResDto().toDto(book.get());
+            Book foundBook = book.get();
+            return foundBook.toDto();
         } else {
             throw new RuntimeException("해당 아이디를 찾을 수 없습니다.");
         }

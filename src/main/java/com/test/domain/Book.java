@@ -1,5 +1,6 @@
 package com.test.domain;
 
+import com.test.web.dto.BookResDto;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,9 +27,17 @@ public class Book {
         this.title = title;
         this.author = author;
     }
-    
+
     public void update(String title, String author) {
         this.title = title;
         this.author = author;
+    }
+
+    public BookResDto toDto() {
+        return BookResDto.builder()
+                .id(id)
+                .title(title)
+                .author(author)
+                .build();
     }
 }
