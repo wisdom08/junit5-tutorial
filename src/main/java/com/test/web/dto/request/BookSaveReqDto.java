@@ -1,4 +1,4 @@
-package com.test.web.dto;
+package com.test.web.dto.request;
 
 import com.test.domain.Book;
 import lombok.Getter;
