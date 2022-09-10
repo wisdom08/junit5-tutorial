@@ -45,10 +45,12 @@ public class BookService {
         bookRepository.deleteById(id);
     }
 
-    public void updateBook(Long id, BookSaveReqDto dto) {
-        Optional<Book> book = bookRepository.findById(id);
-        if (book.isPresent()) {
-            book.get().update(dto.getTitle(), dto.getAuthor());
+    public BookResDto updateBook(Long id, BookSaveReqDto dto) {
+        Optional<Book> optionalBook = bookRepository.findById(id);
+        if (optionalBook.isPresent()) {
+            Book book = optionalBook.get();
+            book.update(dto.getTitle(), dto.getAuthor());
+            return book.toDto();
         } else {
             throw new RuntimeException("해당 아이디를 찾을 수 없습니다.");
         }
