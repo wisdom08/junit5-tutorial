@@ -2,8 +2,8 @@ package com.test.service;
 
 import com.test.domain.Book;
 import com.test.domain.BookRepository;
-import com.test.web.dto.BookResDto;
-import com.test.web.dto.BookSaveReqDto;
+import com.test.web.dto.response.BookResDto;
+import com.test.web.dto.request.BookSaveReqDto;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

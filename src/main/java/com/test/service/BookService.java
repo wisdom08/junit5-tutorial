@@ -2,8 +2,8 @@ package com.test.service;
 
 import com.test.domain.Book;
 import com.test.domain.BookRepository;
-import com.test.web.dto.BookResDto;
-import com.test.web.dto.BookSaveReqDto;
+import com.test.web.dto.response.BookResDto;
+import com.test.web.dto.request.BookSaveReqDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
